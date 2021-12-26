@@ -41,14 +41,10 @@ def solution(r, c):
         dp[r][c] = 1
         return dp[r][c]
     
-    dp[r][c] += solution(r, c - 1) 
-    dp[r][c] %= mod
-    for nr in range(r):
-        dp[r][c] += solution(nr, c - 1)
-        dp[r][c] %= mod
+    for nr in range(r + 1):
+        dp[r][c] = (dp[r][c] + solution(nr, c - 1)) % mod
     return dp[r][c]
     
-
 print(solution(N, K))
 
 
