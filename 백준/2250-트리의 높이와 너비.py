@@ -35,12 +35,12 @@ for _ in range(N):
         Tree[node][2] = right
         Tree[right][0] = node
 # 루트노드 찾기 - DFS로(BFS보단 DFS가 구현이 더 쉽다고 생각해 DFS로 구현)
-visited = {0}
+visited = {0: True}
 stack, root = [1], 0
 
 while stack:
     node = stack.pop()
-    if node and node not in visited:
+    if node not in visited:
         # 현재 순회중인 노드가 부모 노드가 없다? 루트노드다
         if not Tree[node][0]:
             root = node
