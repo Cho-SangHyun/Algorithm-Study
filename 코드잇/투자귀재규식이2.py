@@ -24,7 +24,8 @@ def sublist_max(profits, start, end):
         answer = new
         start, end = left_start, right_end
     else:
-        answer, start, end = (left_max, left_start, left_end) if left_max > right_max else (right_max, right_start, right_end)
+        answer, start, end = ((left_max, left_start, left_end) 
+        if left_max > right_max else (right_max, right_start, right_end))
 
     
     return (answer, start, end)
