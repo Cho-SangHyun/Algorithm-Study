@@ -1,6 +1,5 @@
 from collections import deque
 import sys
-import copy
 input = sys.stdin.readline
 answer = 0
 directions = [(), (-1, 0), (0, 1), (1, 0), (0, -1)]
@@ -34,7 +33,7 @@ def get_q(direction, board):
 
 def move(direction, _board):
     queues = get_q(direction, _board)
-    board = copy.deepcopy(_board)
+    board = [row[:] for row in _board]
     changed = [[0 for i in range(len(_board))] for j in range(len(_board))]
 
     for q in queues:
